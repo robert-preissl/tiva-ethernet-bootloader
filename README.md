@@ -1,5 +1,6 @@
 # tiva-ethernet-bootloader
 Instructions for an ethnernet based bootloader for the Tiva TM4C129X series
+<br><br> 
 
 Concrete client hardware this tutorial is based on: DK-TM4C129X
 Server: Macbook Pro
@@ -12,7 +13,7 @@ very useful description for modifying the Bootloader and eflash tool: https://gi
 
 In order to get the DK-TM4C129X working with enet updates, **three** apps are involved:
 
-
+<br><br>
 **1.) the bootloader on the device : "boot_emac_flash"**
 
 - make sure it will be deployed at the beginning of flash
@@ -47,7 +48,7 @@ uip_sethostaddr(&addrh);
 
 
 
-
+<br><br> 
 **2.) the example app on the device. which jumps to the bootloader if something happens (like a button press or a magic packet comes in)**
 
 - make sure to have a code structure like this:
@@ -76,7 +77,7 @@ end   = 0x00020884 (using hex calculator): http://www.csgnetwork.com/hexaddsubca
 
 
 
-
+<br><br> 
 **3.) the server app "eflash" to start the BOOTP process and then send the image via TFTP**
 
 - somehow I had to create an additional socket to "sBOOTP" in order to send the BOOTP reply. sBOOTP still does the recvfrom for the BOOTP request from the bootloader.
@@ -91,7 +92,7 @@ end   = 0x00020884 (using hex calculator): http://www.csgnetwork.com/hexaddsubca
 
 
 
-
+<br><br> 
 **Tricks to debug:**
 
 - when in assembly mode. go to run debug config. load symbols only. (make sure not to terminate when loading/ or reset). ok to stop current debug session.
