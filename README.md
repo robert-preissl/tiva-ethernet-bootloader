@@ -21,20 +21,20 @@ In order to get the DK-TM4C129X working with enet updates, **three** apps are in
 
 set:
 
-#define BOOTP_SERVER_PORT       (67 + PORT_OFFSET)
-#define BOOTP_CLIENT_PORT       (68 + PORT_OFFSET)
-#define TFTP_PORT               (69 + PORT_OFFSET)
+define BOOTP_SERVER_PORT       (67 + PORT_OFFSET)
+define BOOTP_CLIENT_PORT       (68 + PORT_OFFSET)
+define TFTP_PORT               (69 + PORT_OFFSET)
 
 +
 
-#include "/SW-TM4C-2.1.3.156/third_party/uip-1.0/uip/uip_.c"
+include "/SW-TM4C-2.1.3.156/third_party/uip-1.0/uip/uip_.c"
 
 + edit uip_.c to have: HTONS(40000+69))
 
 
 - in bl_config.h:
 
-#define ENET_BOOTP_SERVER       "stellaris"
+define ENET_BOOTP_SERVER       "stellaris"
 
 - make sure to set an IP address statically in bl_emac.c (we have no DHCP server) :
 uip_ipaddr_t addrh;
